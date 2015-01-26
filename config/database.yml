@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: solid_smoke
+  password: passowrd
+
+development:
+  <<: *default
+  database: solid_smoke_development
+
+test:
+  <<: *default
+  database: solid_smoke_test
+
+production:
+  <<: *default
+  database: solid_smoke_production
+  username: solid_smoke
+  password: <%= ENV['SOLID_SMOKE_DATABASE_PASSWORD'] %>
