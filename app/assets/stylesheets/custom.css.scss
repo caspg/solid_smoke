@@ -11,6 +11,13 @@
 
 body {
   padding-top: 50px;
+  margin-bottom: 100px; // height of footer + margin
+
+}
+
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 
@@ -45,9 +52,12 @@ font-weight: bold;
 
 footer {
   height: 50px;
+  width: 100%;
   background-color: #ffffff;
-  margin-top: 50px;
   border: 1px solid #e2e2e2;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 // ------------------------------------------------------------
