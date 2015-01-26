@@ -1,0 +1,87 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// ------------------------------------------------------------
+// UNIVERSAL 
+// ------------------------------------------------------------
+
+.no-padding {
+  padding: 0;
+}
+
+body {
+  padding-top: 50px;
+}
+
+
+// ------------------------------------------------------------
+// HEADER 
+// ------------------------------------------------------------
+
+#logo {
+float: left;
+margin-right: 10px;
+font-size: 1.7em;
+color: #777;
+text-transform: uppercase;
+letter-spacing: -1px;
+padding-top: 9px;
+font-weight: bold;
+&:hover {
+  color: #333;
+  text-decoration: none;
+  }
+}
+
+.navbar-default {
+  background-color: white;
+  li:hover {
+    background-color: #D2D7D3;
+  }
+}
+
+// ------------------------------------------------------------
+// FOOTER 
+// ------------------------------------------------------------
+
+footer {
+  height: 50px;
+  background-color: #D2D7D3;
+  margin-top: 50px;
+}
+
+// ------------------------------------------------------------
+// HOME PAGE
+// ------------------------------------------------------------
+
+.big-image {
+  position: relative;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  #bubble {
+    position: absolute;
+    left: 40%;
+    top: 22%;
+    width: 40%;
+    height: auto;
+    opacity: 0.7;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+.about {
+  padding-top: 20px;
+}
+
+.home-poster {
+  height: 189px;
+  width: 189px;
+  background-color: #bdbdbd;
+  float:left;
+  border: 1px solid black; 
+}
