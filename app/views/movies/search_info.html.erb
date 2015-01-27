@@ -1,1 +1,15 @@
-<p>jo</p>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div>  
+      <p>Search for a movie in OMDb <%= link_to "(The Open Movie Database)", "http://www.omdbapi.com/", :target => "_blank" %> or add movie informations manually.</p>
+    
+  
+      <%= form_tag({controller: "movies", action: "search_info"}, method: "get", class: "form-inline") do %>
+        <div class="form-group">
+          <%= text_field_tag :title, nil, class: "form-control" %>
+          <%= submit_tag "Search", class: "btn btn-default" %>
+        </div>
+      <% end %>  
+    </div>
+  </div>
+</div>

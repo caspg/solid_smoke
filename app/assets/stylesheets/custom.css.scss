@@ -5,6 +5,10 @@
 // UNIVERSAL 
 // ------------------------------------------------------------
 
+.container {
+  padding-top: 20px;
+}
+
 .no-padding {
   padding: 0;
 }
@@ -90,14 +94,26 @@ footer {
   }
 }
 
-.about {
-  padding-top: 20px;
-}
-
 .home-poster {
   height: 189px;
   width: 189px;
   background-color: #bdbdbd;
   float:left;
   border: 1px solid black; 
+}
+
+// ------------------------------------------------------------
+// FORM INLINE
+// ------------------------------------------------------------
+
+.form-inline{
+  .form-group{
+    width: 100%;
+    .form-control {
+      width: 80%;
+      .btn {
+        width: 20%;
+      }
+    }
+  }
 }
