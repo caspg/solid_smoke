@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :movies, except: [:edit, :update, :destroy]
+  resources :movies, except: [:edit, :update, :destroy] do
+    collection do  
+      get "/search-info" => "movies#search_info"
+    end
+  end
 
   devise_for :users, :skip => [:sessions]
   as :user do
