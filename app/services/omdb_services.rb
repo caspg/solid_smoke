@@ -6,13 +6,18 @@ class OmdbServices
   # then return nested hash with results.
   def search(title)
     url =  "http://www.omdbapi.com/?s=#{title}&r=json"
-    json_file = open(url) { |f| f.read }
-    result_hash = JSON.parse(json_file)
+    return_result(url)
   end
 
   def get_info(title)
-    utl = "http://www.omdbapi.com/?t=#{title}&y=&plot=full&r=json"
-    json_file = open(utl) { |f| f.read }
+    url = "http://www.omdbapi.com/?t=#{title}&y=&plot=full&r=json"
+    return_result(url)
+  end
+
+  private 
+
+  def return_result(url)
+    json_file = open(url) { |f| f.read }
     result_hash = JSON.parse(json_file)
   end
 
