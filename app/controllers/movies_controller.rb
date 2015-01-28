@@ -1,5 +1,3 @@
-require 'open-uri'
-
 class MoviesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new, :search_info]
 
@@ -15,14 +13,14 @@ class MoviesController < ApplicationController
   def show
   end
 
+  # if given title parameter return search results.
   def search_info
     if params[:title].present?
       begin
-        url =  "http://www.omdbapi.com/?s=#{params[:title]}&r=json"
-        json_file = open(url) { |f| f.read }
-        @search_result = JSON.parse(json_file)
+        omdb_service  = OmdbServices.new
+        @search_result = omdb_service.search(params[:title])
       rescue 
-        flash[:danger] = "Couldn't fetch data! Try later or add movie informations manually"
+        flash[:danger] = "Couldn't fetch data! Try later or add movie informations manually."
       end
     end
   end

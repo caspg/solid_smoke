@@ -16,13 +16,17 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <div class="list-group omdb-search">  
-
-      <% unless @search_result.nil? || @search_result["Search"].nil? %>
-        <% @search_result["Search"].each do |result| %>
-          <%= link_to "#{result["Title"]}, #{result["Year"]}", new_movie_path(:title => "movie title"), class: "list-group-item" %>
+      
+      <% if @search_result %>
+        <% if @search_result["Error"] %>
+          <div class="alert alert-warning"><%= @search_result["Error"] %></div>
+        <% else %>
+          <% @search_result["Search"].each do |result| %>
+            <%= link_to "#{result["Title"]}, #{result["Year"]}", new_movie_path(:title => "movie title"), class: "list-group-item" %>
+          <% end %>
         <% end %>
       <% end %>
-
+    
     </div>
   </div>
 </div>
