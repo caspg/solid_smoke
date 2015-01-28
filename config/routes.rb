@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :movies, except: [:edit, :update, :destroy] do
     collection do  
       get "/search-info" => "movies#search_info"
+      get "/get-info"    => "movies#get_info"
     end
   end
 

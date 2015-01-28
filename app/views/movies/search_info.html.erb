@@ -22,7 +22,7 @@
           <div class="alert alert-warning"><%= @search_result["Error"] %></div>
         <% else %>
           <% @search_result["Search"].each do |result| %>
-            <%= link_to "#{result["Title"]}, #{result["Year"]}", new_movie_path(:title => "movie title"), class: "list-group-item" %>
+            <%= link_to "#{result["Title"]}, #{result["Year"]}", new_movie_path(:title => result["Title"]), class: "list-group-item" %>
           <% end %>
         <% end %>
       <% end %>

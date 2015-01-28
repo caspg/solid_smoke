@@ -10,4 +10,10 @@ class OmdbServices
     result_hash = JSON.parse(json_file)
   end
 
+  def get_info(title)
+    utl = "http://www.omdbapi.com/?t=#{title}&y=&plot=full&r=json"
+    json_file = open(utl) { |f| f.read }
+    result_hash = JSON.parse(json_file)
+  end
+
 end

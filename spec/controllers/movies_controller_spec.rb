@@ -42,9 +42,5 @@ RSpec.describe MoviesController, :type => :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
     end
-
-    context "when user is logged" do
-      it    
-    end
   end
 end

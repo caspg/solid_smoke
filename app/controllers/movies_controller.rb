@@ -5,6 +5,14 @@ class MoviesController < ApplicationController
   end
 
   def new
+    if params[:title]
+      begin
+        omdb_service = OmdbServices.new
+        @movie_info  = omdb_service.get_info(params[:title])
+      rescue
+        flash[:danger] = "Couldn't fetch data! Try later or add movie informations manually."
+      end
+    end
   end
 
   def create
@@ -13,11 +21,11 @@ class MoviesController < ApplicationController
   def show
   end
 
-  # if given title parameter return search results.
+  # Return search results if title is given.
   def search_info
-    if params[:title].present?
+    if params[:title]
       begin
-        omdb_service  = OmdbServices.new
+        omdb_service   = OmdbServices.new
         @search_result = omdb_service.search(params[:title])
       rescue 
         flash[:danger] = "Couldn't fetch data! Try later or add movie informations manually."
