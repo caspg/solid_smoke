@@ -16,11 +16,13 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <div class="list-group omdb-search">  
-      <% unless @search_result.nil? %>
+
+      <% unless @search_result.nil? || @search_result["Search"].nil? %>
         <% @search_result["Search"].each do |result| %>
           <a href="#" class="list-group-item"><%= result["Title"] %>, <%= result["Year"] %>, <%= result["Type"] %></a>
         <% end %>
       <% end %>
+
     </div>
   </div>
 </div>

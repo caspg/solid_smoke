@@ -16,13 +16,14 @@ class MoviesController < ApplicationController
   end
 
   def search_info
-    if params[:title]
-      url =  "http://www.omdbapi.com/?s=#{params[:title]}&r=json"
-      # url = "http://www.omdbapi.com/?t=#{params[:title]}&r=json"
-      json_file = open(url) { |f| f.read }
-      @search_result = JSON.parse(json_file)
-    else 
-      @search_resul = nil
+    if params[:title].present?
+      begin
+        url =  "http://wwxxxxw.omdbapi.com/?s=#{params[:title]}&r=json"
+        json_file = open(url) { |f| f.read }
+        @search_result = JSON.parse(json_file)
+      rescue 
+        flash[:danger] = "Couldn't fetch data! Try later or add movie informations manually"
+      end
     end
   end
 end
