@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class MoviesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new, :search_info]
 
@@ -13,9 +15,14 @@ class MoviesController < ApplicationController
   def show
   end
 
-  # Search for a movie in OMDb (The Open Movie Database)
-  # and return hash with matching titles.
   def search_info
-      search_result = SearchInOmdb.new
+    if params[:title]
+      url =  "http://www.omdbapi.com/?s=#{params[:title]}&r=json"
+      # url = "http://www.omdbapi.com/?t=#{params[:title]}&r=json"
+      json_file = open(url) { |f| f.read }
+      @search_result = JSON.parse(json_file)
+    else 
+      @search_resul = nil
+    end
   end
 end
