@@ -19,7 +19,7 @@
 
       <% unless @search_result.nil? || @search_result["Search"].nil? %>
         <% @search_result["Search"].each do |result| %>
-          <a href="#" class="list-group-item"><%= result["Title"] %>, <%= result["Year"] %>, <%= result["Type"] %></a>
+          <%= link_to "#{result["Title"]}, #{result["Year"]}", new_movie_path(:title => "movie title"), class: "list-group-item" %>
         <% end %>
       <% end %>
 

@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
   def search_info
     if params[:title].present?
       begin
-        url =  "http://wwxxxxw.omdbapi.com/?s=#{params[:title]}&r=json"
+        url =  "http://www.omdbapi.com/?s=#{params[:title]}&r=json"
         json_file = open(url) { |f| f.read }
         @search_result = JSON.parse(json_file)
       rescue 

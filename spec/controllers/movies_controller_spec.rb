@@ -10,6 +10,7 @@ RSpec.describe MoviesController, :type => :controller do
   end
 
   describe "GET new" do
+    before(:each) { login_user }
     it "returns http success" do
       get :new
       expect(response).to have_http_status(:success)
