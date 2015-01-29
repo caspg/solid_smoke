@@ -6,14 +6,7 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
-    if params[:title]
-      begin
-        omdb_service = OmdbServices.new
-        @movie_info  = omdb_service.get_info(params[:title])
-      rescue
-        flash[:danger] = "Couldn't fetch data! Try later or add movie informations manually."
-      end
-    end
+    call_omdb_service(:get_info)
   end
 
   # def create
@@ -22,13 +15,21 @@ class MoviesController < ApplicationController
   def show
   end
 
-  # Return search results if title is given.
   def search_info
+    call_omdb_service(:search)
+  end
+
+  private 
+
+  # If params are given:
+  # call OmbdbService and return hash results or rescue with flash message.
+  def call_omdb_service(method)
     if params[:title]
       begin
-        omdb_service   = OmdbServices.new
-        @search_result = omdb_service.search(params[:title])
-      rescue 
+        omdb_service = OmdbServices.new
+        @search_result = omdb_service.search(params[:title])   if method == :search
+        @search_result = omdb_service.get_info(params[:title]) if method == :get_info
+      rescue
         flash[:danger] = "Couldn't fetch data! Try later or add movie informations manually."
       end
     end
