@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
       begin
         omdb_service = OmdbServices.new
         @search_result = omdb_service.search(params[:title])   if method == :search
-        @search_result = omdb_service.get_info(params[:title]) if method == :get_info
+        @movie_info = omdb_service.get_info(params[:title]) if method == :get_info
       rescue
         flash[:danger] = "Couldn't fetch data! Try later or add movie informations manually."
       end
