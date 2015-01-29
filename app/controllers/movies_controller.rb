@@ -16,7 +16,6 @@ class MoviesController < ApplicationController
       flash[:succes] = "Movie successfully added!"
       redirect_to movie_path(@movie)
     else
-      # flash[:danger] = "Couldn't add a movie. Try again." 
       render 'new'
     end
   end
@@ -40,10 +39,12 @@ class MoviesController < ApplicationController
   # call OmbdbService and return hash results or rescue with flash message.
   def call_omdb_service(method)
     if params[:title]
+      # Strip spaces. And convert inside spaces into '+'.
+      title = params[:title].strip.gsub(/[[:space:]]/, '+')
       begin
         omdb_service = OmdbServices.new
-        @search_result = omdb_service.search(params[:title])   if method == :search
-        @movie_info = omdb_service.get_info(params[:title]) if method == :get_info
+        @search_result = omdb_service.search(title)   if method == :search
+        @movie_info = omdb_service.get_info(title) if method == :get_info
       rescue
         flash[:danger] = "Couldn't fetch data! Try later or add movie informations manually."
       end
