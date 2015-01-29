@@ -16,6 +16,7 @@ class OmdbServices
 
   private 
 
+  # Open given url and convert Json string to hash.
   def return_result(url)
     json_file = open(url) { |f| f.read }
     result_hash = JSON.parse(json_file)

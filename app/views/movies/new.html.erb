@@ -1,5 +1,41 @@
-<% if @movie_info %>
-  <%= @movie_info.each_key do |key| %>
-    <%= @movie_info[key] %><br />
-  <% end %>
-<% end %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <% if @movie_info.nil? %>
+      <% @movie_info = Hash.new("") %>
+    <% end %>
+        
+    <%= form_for(@movie) do |f| %>
+        
+      <%= f.submit "Add this movie", :class => "btn btn-primary" %>        
+      
+      <div class="border">
+        <% info_type = %w[Title Year Runtime Genre Director Country] %>
+        <% info_type += %w[Awards Poster Actors] %>
+        <div class="row">
+          <% info_type.each do |type| %>
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.label type.downcase %>
+                <%= f.text_field type.downcase, :class => "form-control", :value => @movie_info[type] %>
+              </div>
+            </div>
+          <% end %>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :category %>
+              <%= f.text_field :category, :class => "form-control", :value => @movie_info["Type"] %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <%= f.label :plot %>
+              <%= f.text_area :plot, :class => "form-control", :rows => "4", :value => @movie_info["Plot"]  %>
+            </div>            
+          </div>
+        </div>
+      </div>  
+    <% end %>
+  </div>
+</div>

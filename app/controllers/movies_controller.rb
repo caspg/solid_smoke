@@ -5,6 +5,7 @@ class MoviesController < ApplicationController
   end
 
   def new
+    @movie = Movie.new
     if params[:title]
       begin
         omdb_service = OmdbServices.new
@@ -15,8 +16,8 @@ class MoviesController < ApplicationController
     end
   end
 
-  def create
-  end
+  # def create
+  # end
 
   def show
   end
