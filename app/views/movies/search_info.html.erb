@@ -1,14 +1,16 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <div>  
-      <p>Search for a movie in OMDb <%= link_to "(The Open Movie Database)", "http://www.omdbapi.com/", :target => "_blank" %> or add movie informations manually.</p>
-    
-      <%= form_tag({controller: "movies", action: "search_info"}, method: "get", class: "form-inline") do %>
-        <div class="form-group">
-          <%= text_field_tag :title, nil, class: "form-control" %>
-          <%= submit_tag "Search", class: "btn btn-default", :name => nil %>
-        </div>
-      <% end %>  
+      <p>divSearch for a movie in OMDb <%= link_to "(The Open Movie Database)", "http://www.omdbapi.com/", :target => "_blank" %> or add movie informations manually.</p>
+      
+      <div class="form">
+        <%= form_tag({controller: "movies", action: "search_info"}, method: "get", class: "form-inline", name: "search") do %>
+          <div class="form-group">
+            <%= text_field_tag :title, nil, class: "form-control", placeholder: "movie title"%>
+            <%= submit_tag "Search", class: "btn btn-default", :name => nil, id: "search" %>
+          </div>
+        <% end %>  
+      </div>
     </div>
   </div>
 </div>
