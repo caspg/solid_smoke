@@ -9,8 +9,17 @@ class MoviesController < ApplicationController
     call_omdb_service(:get_info)
   end
 
-  # def create
-  # end
+  def create
+    @movie = Movie.new(movie_params)
+    @movie.user_id = current_user.id
+    if @movie.save
+      flash[:succes] = "Movie successfully added!"
+      redirect_to movie_path(@movie)
+    else
+      # flash[:danger] = "Couldn't add a movie. Try again." 
+      render 'new'
+    end
+  end
 
   def show
   end
@@ -20,6 +29,12 @@ class MoviesController < ApplicationController
   end
 
   private 
+
+  def movie_params
+    params.require(:movie).permit(:title, :year, :runtime, :genre, :director,
+                                  :actors, :country, :awards, :poster, :category, 
+                                  :plot, :user_id)
+  end
 
   # If params are given:
   # call OmbdbService and return hash results or rescue with flash message.
