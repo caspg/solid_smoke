@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Movie, :type => :model do
-
   it "has valid factory" do
     expect(FactoryGirl.create(:movie)).to be_valid
   end

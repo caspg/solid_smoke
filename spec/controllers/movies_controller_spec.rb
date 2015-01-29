@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe MoviesController, :type => :controller do
-
   describe "GET index" do
     it "returns http success" do
       get :index
@@ -18,7 +17,6 @@ RSpec.describe MoviesController, :type => :controller do
   end
 
   describe "GET show" do
-
     # This doesn't work and display this message:
     #
     # """ Failure/Error: get :show
