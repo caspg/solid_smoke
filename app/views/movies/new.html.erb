@@ -7,7 +7,7 @@
     <%= form_for(@movie) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
         
-      <%= f.submit "Add this movie", :class => "btn btn-primary" %>        
+      <%= f.submit "Add this movie", class: "btn btn-primary" %>        
       
       <div class="border">
         <% info_type = %w[Title Year Runtime Genre Director Country] %>
@@ -17,14 +17,14 @@
             <div class="col-md-6">
               <div class="form-group">
                 <%= f.label type.downcase %>
-                <%= f.text_field type.downcase, :class => "form-control", :value => @movie_info[type] %>
+                <%= f.text_field type.downcase, class: "form-control", value: @movie_info[type] %>
               </div>
             </div>
           <% end %>
           <div class="col-md-6">
             <div class="form-group">
               <%= f.label :category %>
-              <%= f.text_field :category, :class => "form-control", :value => @movie_info["Type"] %>
+              <%= f.text_field :category, class: "form-control", value: @movie_info["Type"] %>
             </div>
           </div>
         </div>
@@ -32,7 +32,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <%= f.label :plot %>
-              <%= f.text_area :plot, :class => "form-control", :rows => "4", :value => @movie_info["Plot"]  %>
+              <%= f.text_area :plot, class: "form-control", rows: "4", value: @movie_info["Plot"]  %>
             </div>            
           </div>
         </div>
