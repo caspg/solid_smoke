@@ -2,6 +2,7 @@ class MoviesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new, :search_info]
 
   def index
+    @movies = Movie.all
   end
 
   def new

@@ -2,7 +2,7 @@
 @import "bootstrap";
 
 // ------------------------------------------------------------
-// UNIVERSAL 
+// VARIABLES - UNIVERSAL 
 // ------------------------------------------------------------
 
 $lgrey: #ddd; // light grey
@@ -174,21 +174,39 @@ footer {
   }
 }
 
+// ------------------------------------------------------------
+// MOVIE INDEX PAGE
+// ------------------------------------------------------------
 
+$index_poster_width: 50px;
 
+.movie-index {
+  table {
+    width: 100%;
+  }
+  tr {
+    &:hover {
+      background-color: #E4F1FE;
+    }
+    img {
+      width: $index_poster_width;
+      height: auto;
+    }
+    span {
+      font-size: 0.9em;
+      font-style: italic;
+    }
+  }
+  td:first-child {
+    width: $index_poster_width;
+  }
+  td:nth-child(2) {
+    padding: 0 50px; // top = 0, right and left = XXpx
+  }
+  a {
+    color: #333333;
+    font-size: 1.3em;
+  }
+}
 
-// .poster {
-//   margin-top: 20px;
-// }
-
-// .movie-info {  
-//   h1 {
-//     border-bottom: 1px solid $lgrey;
-//   }
-//   span:nth-child(2) {
-//     font-size: 0.5em;
-//   }
-// }
-// .information {
-//   border-bottom: 1px solid $lgrey;
-// }
+// padding, margin: TOP RIGHT BOTTOM LEFT

@@ -1,2 +1,23 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<div class="col-md-8 col-md-offset-2">
+  <div class="movie-index">
+
+    <table class="table-bordered">
+      <tbody>
+
+        <% @movies.each do |movie| %>
+        <% movie.poster.nil? ? poster_link = "https://placekitten.com/g/40/60" : poster_link = movie.poster %>
+          <tr>
+            <td><div><%= link_to image_tag(poster_link), movie  %></div></td>
+            <td>
+              <%= link_to movie.title, movie %>
+              <span>(<%= movie.year %>), <%= movie.country %></span>
+            </td>
+          </tr>
+        <% end %>
+
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
