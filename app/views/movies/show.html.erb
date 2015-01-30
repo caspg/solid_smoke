@@ -1,2 +1,47 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<div class="movie-informations">
+
+  <div class="row">
+
+    <div class="col-md-4 poster">
+      <% if @movie.poster %>
+        <%= image_tag @movie.poster %>
+      <% else %>
+        <%= image_tag "https://placekitten.com/g/300/450" %>
+      <% end %>      
+    </div>
+
+    <div class="col-md-8 movie-details">
+      <h1>
+        <span><%= @movie.title %></span>
+        <span>(<%= @movie.year %>)</span>
+      </h1>
+      <p><%= @movie.plot %></p>
+      <div>
+        <table class="table">
+          <tr>
+            <th>Director:</th>
+            <td><%= @movie.director %></td>
+          </tr>
+          <tr>
+            <th>Runtime:</th>
+            <td><%= @movie.runtime %></td>
+          </tr>
+          <tr>
+            <th>Actors:</th>
+            <td><%= @movie.actors %></td>
+          </tr>
+          <tr>
+            <th>Genre:</th>
+            <td><%= @movie.genre %></td>
+          </tr>
+          <tr>
+            <th>Awards:</th>
+            <td><%= @movie.awards %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -5,6 +5,13 @@
 // UNIVERSAL 
 // ------------------------------------------------------------
 
+$lgrey: #ddd; // light grey
+$smoke-style: 1px solid $lgrey; // border style
+
+// ------------------------------------------------------------
+// UNIVERSAL 
+// ------------------------------------------------------------
+
 .container {
   padding-top: 20px;
 }
@@ -142,3 +149,46 @@ footer {
     background-color: #E4F1FE;
   }
 }
+
+// ------------------------------------------------------------
+// MOVIE SHOW PAGE
+// ------------------------------------------------------------
+
+.movie-informations {
+  .poster {
+    img {
+      margin-top: 25px;
+    }
+  }
+}
+
+.movie-details {
+  h1 {
+    border-bottom: $smoke-style;
+  }
+  span:nth-child(2) {
+    font-size: 0.5em;
+  }
+  .table {
+    border-bottom: $smoke-style;
+  }
+}
+
+
+
+
+// .poster {
+//   margin-top: 20px;
+// }
+
+// .movie-info {  
+//   h1 {
+//     border-bottom: 1px solid $lgrey;
+//   }
+//   span:nth-child(2) {
+//     font-size: 0.5em;
+//   }
+// }
+// .information {
+//   border-bottom: 1px solid $lgrey;
+// }
