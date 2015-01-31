@@ -56,10 +56,10 @@ class MoviesController < ApplicationController
 
   # sort_column and sort_direction set default value of sorting parameter for index action
   def sort_column
-    %w[title year].include?(params[:sort]) ? params[:sort] : "title"
+    %w[title year].include?(params[:sort]) ? params[:sort] : "year"
   end
 
   def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
 end

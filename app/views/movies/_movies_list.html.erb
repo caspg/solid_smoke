@@ -1,0 +1,19 @@
+<div class="sort-opt pull-right">
+  <span>Sorted by:</span> 
+  <%= sortable "title" %>
+  <%= sortable "year" %>
+</div>
+<table class="table-bordered">
+  <tbody>
+    <% @movies.each do |movie| %>
+    <% movie.poster.nil? ? poster_link = "https://placekitten.com/g/40/60" : poster_link = movie.poster %>
+      <tr>
+        <td><div><%= link_to image_tag(poster_link), movie  %></div></td>
+        <td>
+          <%= link_to movie.title, movie %>
+          <span>(<%= movie.year %>), <%= movie.country %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
