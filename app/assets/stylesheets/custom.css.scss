@@ -196,6 +196,10 @@ $index_poster_width: 50px;
       font-size: 0.9em;
       font-style: italic;
     }
+    a {
+      color: #333333;
+      font-size: 1.3em;
+    }
   }
   td:first-child {
     width: $index_poster_width;
@@ -203,10 +207,36 @@ $index_poster_width: 50px;
   td:nth-child(2) {
     padding: 0 50px; // top = 0, right and left = XXpx
   }
+}
+
+.sort-opt {
+  margin-bottom: 10px;
   a {
     color: #333333;
-    font-size: 1.3em;
+    font-size: 1.2em;
+    &:hover {
+      text-decoration: none;
+    }
+    span {
+      padding: 5px 20px 5px 5px;
+    }
   }
+  .current {
+    background-color: #E4F1FE;
+    background-repeat: no-repeat;
+    background-position: 90% 50%;
+    background-size: 0.7em;
+  }
+  .asc {
+    background-image: url('up_triangle.svg');
+  }
+  .desc {
+    background-image: url('down_triangle.svg');
+  }
+}
+
+#arrow {
+  fill: red;
 }
 
 // padding, margin: TOP RIGHT BOTTOM LEFT

@@ -1,8 +1,9 @@
 class MoviesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new, :search_info]
+  helper_method :sort_column, :sort_direction
 
   def index
-    @movies = Movie.all
+    @movies = Movie.order(sort_column + ' ' + sort_direction)
   end
 
   def new
@@ -51,5 +52,14 @@ class MoviesController < ApplicationController
         flash[:danger] = "Couldn't fetch data! Try later or add movie informations manually."
       end
     end
+  end
+
+  # sort_column and sort_direction set default value of sorting parameter for index action
+  def sort_column
+    %w[title year].include?(params[:sort]) ? params[:sort] : "title"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

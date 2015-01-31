@@ -1,6 +1,11 @@
 <div class="col-md-8 col-md-offset-2">
   <div class="movie-index">
 
+    <div class="sort-opt pull-right">
+      <span>Sorted by:</span> 
+      <%= sortable "title" %>
+      <%= sortable "year" %>
+    </div>
     <table class="table-bordered">
       <tbody>
 
