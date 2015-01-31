@@ -41,13 +41,16 @@ class MoviesController < ApplicationController
   # If params are given:
   # call OmbdbService and return hash results or rescue with flash message.
   def call_omdb_service(method)
-    if params[:title]
-      # Strip spaces. And convert inside spaces into '+'.
-      title = params[:title].strip.gsub(/[[:space:]]/, '+')
+    if params[:title] || params[:imdbID]
       begin
         omdb_service = OmdbServices.new
-        @search_result = omdb_service.search(title)   if method == :search
-        @movie_info = omdb_service.get_info(title) if method == :get_info
+        if method == :search
+          # Strip spaces. And convert inside spaces into '+'.
+          title= params[:title].strip.gsub(/[[:space:]]/, '+')
+          @search_result = omdb_service.search(title)
+        elsif method == :get_info
+          @movie_info = omdb_service.get_info(params[:imdbID])
+        end
       rescue
         flash[:danger] = "Couldn't fetch data! Try later or add movie informations manually."
       end
