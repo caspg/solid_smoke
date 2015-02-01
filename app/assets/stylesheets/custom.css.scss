@@ -6,7 +6,21 @@
 // ------------------------------------------------------------
 
 $lgrey: #ddd; // light grey
+$red-alert: #C0392B;
+$green: green;
+
 $smoke-style: 1px solid $lgrey; // border style
+
+// ------------------------------------------------------------
+// ERRORS FROM "jquery-validation-rails"
+// ------------------------------------------------------------
+
+.error {
+  color: $red-alert;
+}
+.form-control.error {
+  border-color: $red-alert !important; 
+}
 
 // ------------------------------------------------------------
 // UNIVERSAL 
@@ -49,7 +63,9 @@ html {
   @extend .alert-success
 }
 
-
+.green-border {
+  border-color: $green;
+}
 
 // ------------------------------------------------------------
 // HEADER 
@@ -147,6 +163,27 @@ footer {
   padding-top: 20px;
   a:hover {
     background-color: #E4F1FE;
+  }
+}
+
+// ------------------------------------------------------------
+// NEW MOVIE
+// ------------------------------------------------------------
+
+.new-movie-page {
+  .form-group {
+    margin: 0;
+  }
+  .col-md-6 {
+    margin-bottom: 15px;
+  }
+  span {
+    font-size: 0.9em;
+    font-style: italic;
+  }
+  .error {
+    float: right;
+    margin: 0;
   }
 }
 

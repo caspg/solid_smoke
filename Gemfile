@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'devise'
 gem 'jquery-turbolinks'
+gem "jquery-validation-rails"
 
 group :development, :test do
   gem 'byebug'
