@@ -1,26 +1,20 @@
-<%= render 'about' %>
+<%= render 'about' unless user_signed_in? %>
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-    <h1>Trending today</h1>      
-      <div>
-        <div class="home-poster">Poster 1</div>
-        <div class="home-poster">Poster 2</div>
-        <div class="home-poster">Poster 3</div>
-        <div class="home-poster">Poster 4</div>
-        <div class="home-poster">Poster 5</div>
-      </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <h1>Recently added</h1>      
-      <div>
-        <div class="home-poster">Poster 1</div>
-        <div class="home-poster">Poster 2</div>
-        <div class="home-poster">Poster 3</div>
-        <div class="home-poster">Poster 4</div>
-        <div class="home-poster">Poster 5</div>
-      </div>
+    <div class="recent-gallery">
+
+      <h1>Recently added</h1>      
+
+      <% @movies.each do |movie| %>
+        <div>
+          <%= link_to(movie) do %>
+            <%= image_tag movie.poster %>
+            <h4><%= movie.title %></h4>
+          <% end %>
+        </div>  
+      <% end %>
+
+    </div>
   </div>
 </div>

@@ -10,7 +10,7 @@ class OmdbServices
   end
 
   def get_info(id)
-    url = "http://www.omdbapi.com/?i=#{id}&y=&plot=full&r=json"
+    url = "http://www.omdbapi.com/?i=#{id}&y=&plot=short&r=json"
     return_result(url)
   end
 

@@ -11,6 +11,8 @@ $green: green;
 
 $smoke-style: 1px solid $lgrey; // border style
 
+$break-small: 768px;  // bootstrap breakpoint
+
 // ------------------------------------------------------------
 // ERRORS FROM "jquery-validation-rails"
 // ------------------------------------------------------------
@@ -130,12 +132,54 @@ footer {
   }
 }
 
-.home-poster {
-  height: 189px;
-  width: 189px;
-  background-color: #bdbdbd;
-  float:left;
-  border: 1px solid black; 
+.recent-gallery {
+  // padding-top: 50px;
+  padding-bottom: 50px;
+  h1 {
+    padding-bottom: 5px;
+    border-bottom: 1px solid $lgrey;
+  }
+  div {
+    position: relative;
+    float: left;
+    width: 183px;;
+    height: 183px;
+    overflow: hidden;
+    margin: 0 auto;
+    h4 {
+      background-color: $lgrey;
+      position: absolute;
+      top: 8px;
+      left: 10px;
+      // display: none;
+      font-weight: bold;
+      font-size: 20px;
+      color: #333333;
+      padding: 5px;
+    }
+  }
+  img {
+    width: 200px;
+    height: auto;
+    margin: 2px;
+    -webkit-filter: grayscale(10%);
+    background-color: $lgrey;
+  }
+}
+
+@media(min-width: $break-small) {
+  .recent-gallery {
+    h4 {
+      display: none;
+      background-color: transparent !important;
+    }
+    a:hover > img {
+      opacity: 0.2;
+    }
+    a:hover h4 {
+      display: block;
+    }
+  }
 }
 
 // ------------------------------------------------------------
