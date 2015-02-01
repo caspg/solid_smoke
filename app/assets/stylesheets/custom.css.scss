@@ -69,6 +69,7 @@ html {
   border-color: $green;
 }
 
+
 // ------------------------------------------------------------
 // HEADER 
 // ------------------------------------------------------------
@@ -140,9 +141,10 @@ footer {
     border-bottom: 1px solid $lgrey;
   }
   div {
+    display: inline-block;
     position: relative;
     float: left;
-    width: 183px;;
+    width: 183px;
     height: 183px;
     overflow: hidden;
     margin: 0 auto;
