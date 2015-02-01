@@ -18,8 +18,16 @@ $(document).ready ( function () {
     	return false;
     });
 // -------------------------------------------
-// Max length of plot input in new movie form.
+// Display number of characters of plot's input
 // -------------------------------------------
+    var plot_input = $("#movie_plot").val().length;
+    if (plot_input == 0) {
+        $("#plot-lenght").text("You've reached the limit.");
+    } else  {
+        var max = 1200;
+        var char_left = max - plot_input;
+        $("#plot-lenght").html("characters: " + plot_input + "/" + char_left);
+    };
     $(".new-movie-page #movie_plot").keyup(function() {
         var plot_input = $("#movie_plot").val().length;
         var max = 1200;
@@ -32,6 +40,7 @@ $(document).ready ( function () {
             $("#plot-lenght").html("characters: " + plot_input + "/" + char_left);
         }; 
     });
+
 // --------------------------------------------------------
 // New movie form validation with
 // --------------------------------------------------------
