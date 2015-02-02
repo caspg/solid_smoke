@@ -8,7 +8,10 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
-    call_omdb_service(:get_info)
+    if params[:imdbID]
+      omdb_service = OmdbServices.new
+      omdb_service.get_info(params[:imdbID])
+    end
   end
 
   def create
@@ -29,7 +32,10 @@ class MoviesController < ApplicationController
   end
 
   def search_info
-    call_omdb_service(:search)
+    if params[:title]
+      omdb_service = OmdbServices.new
+      @search_result = omdb_service.search(params[:title])
+    end
   end
 
   private 
@@ -38,25 +44,6 @@ class MoviesController < ApplicationController
     params.require(:movie).permit(:title, :year, :runtime, :genre, :director,
                                   :actors, :country, :awards, :poster, :category, 
                                   :plot, :user_id)
-  end
-
-  # If params are given:
-  # call OmbdbService and return hash results or rescue with flash message.
-  def call_omdb_service(method)
-    if params[:title] || params[:imdbID]
-      begin
-        omdb_service = OmdbServices.new
-        if method == :search
-          # Strip spaces. And convert inside spaces into '+'.
-          title= params[:title].strip.gsub(/[[:space:]]/, '+')
-          @search_result = omdb_service.search(title)
-        elsif method == :get_info
-          @movie_info = omdb_service.get_info(params[:imdbID])
-        end
-      rescue
-        flash[:danger] = "Couldn't fetch data! Try later or add movie informations manually."
-      end
-    end
   end
 
   # sort_column and sort_direction set default value of sorting parameter for index action

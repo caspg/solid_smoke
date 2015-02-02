@@ -1,17 +1,29 @@
 require 'open-uri'
 
 class OmdbServices
+  # If params are given:
+  # connect with omdbapi and fetch needed data or rescue with flash message.
 
-  # connect with omdbapi and search for a movies with given title,
-  # then return nested hash with results.
+  # Return nested hash with results.
   def search(title)
-    url =  "http://www.omdbapi.com/?s=#{title}&r=json"
-    return_result(url)
+    begin
+      # Strip spaces. And convert inside spaces into '+'.
+      clean_title = title.strip.gsub(/[[:space:]]/, '+')
+      url =  "http://www.omdbapi.com/?s=#{clean_title}&r=json"
+      return_result(url)
+    rescue
+        flash[:danger] = "Couldn't fetch data! Try later or add movie informations manually."
+      end
   end
 
+  # Return hash with movie informations.
   def get_info(id)
-    url = "http://www.omdbapi.com/?i=#{id}&y=&plot=short&r=json"
-    return_result(url)
+    begin
+      url = "http://www.omdbapi.com/?i=#{id}&y=&plot=short&r=json"
+      @movie_info = return_result(url)
+    rescue
+        flash[:danger] = "Couldn't fetch data! Try later or add movie informations manually."
+      end
   end
 
   private 
