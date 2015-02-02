@@ -257,20 +257,27 @@ footer {
       width: 100%;
       }
     .rev-title {
-      font-weight: bold;
       width: 100%;
       border-bottom: $smoke-style;
-      padding: 6px 40px;
       background-color: #E4F1FE;
+      td:first-child {
+        font-weight: bold; 
+        padding-top: 8px;
+        font-size: 1.1em;
+      }
+      td:nth-child(2) {
+        font-size: 0.85em;
+        font-style: italic;
+      }
+      td {
+        display: block;
+        padding-left: 30px;
+      }
+  
     }
     .rev-content {
-      padding: 12px 40px;
-    }
-    .rev-date {
-      float: right;
-      font-size: 0.9em;
-      font-style: italic;
-      padding-right: 10px;
+      padding: 12px 30px;
+      font-size: 0.95em;
     }
   }
 }

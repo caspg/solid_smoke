@@ -1,0 +1,13 @@
+<div class="reviews">
+  <% @reviews.each do |review| %>      
+    <div class="review">
+      <table>
+        <tr class="rev-title">
+          <td><%= review.title %></td>
+          <td>author: <%= review.user.email %> | posted: <%= time_ago_in_words(review.created_at) %> ago.</td>          
+        </tr>
+        <tr><td class="rev-content"><%= review.content %></td></tr>
+      </table>
+    </div>
+  <% end %>
+</div>
