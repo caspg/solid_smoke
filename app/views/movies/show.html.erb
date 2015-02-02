@@ -47,7 +47,7 @@
         <%= render 'shared/reviews' %>      
       
         <% if user_signed_in? && !user_wrote_review? %>     
-          <div class="border">
+          <div class="border new-review">
             <%= form_for @review do |f| %>
               <%= f.hidden_field :movie_id, value: @movie.id %>
               <%= f.label :title, class: "control-label" %>
