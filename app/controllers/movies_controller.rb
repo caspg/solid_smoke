@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
     @movie = Movie.new
     if params[:imdbID]
       omdb_service = OmdbServices.new
-      omdb_service.get_info(params[:imdbID])
+      @movie_info = omdb_service.get_info(params[:imdbID])
     end
   end
 
