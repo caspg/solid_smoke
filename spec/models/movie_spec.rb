@@ -33,4 +33,8 @@ RSpec.describe Movie, :type => :model do
       expect(build(:movie, year: "1915")).to be_valid
     end
   end
+
+  describe "associations" do
+    it { should have_many(:reviews).dependent(:destroy) }
+  end
 end

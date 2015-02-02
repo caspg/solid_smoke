@@ -31,4 +31,9 @@ RSpec.describe Review, :type => :model do
       expect(build(:review, user_id: user.id, movie_id: movie.id)).not_to be_valid
     end
   end
+
+  describe "associations" do
+    it { should belong_to(:user) }
+    it { should belong_to(:movie) }
+  end
 end
