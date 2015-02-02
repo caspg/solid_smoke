@@ -1,8 +1,5 @@
 <div class="row new-movie-page">
   <div class="col-md-8 col-md-offset-2">
-    <% if @movie_info.nil? %>
-      <% @movie_info = Hash.new("") %>
-    <% end %>
         
     <%= form_for @movie do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
@@ -14,61 +11,61 @@
           <div class="col-md-6">
             <div class="form-group title">
               <%= f.label :title, class: "control-label" %>
-              <%= f.text_field :title, class: "form-control green-border", value: @movie_info["Title"] %>
+              <%= f.text_field :title, class: "form-control green-border", value: movie_info["Title"] %>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group year">
               <%= f.label :year, class: "control-label" %>
-              <%= f.text_field :year, class: "form-control green-border", value: @movie_info["Year"] %>
+              <%= f.text_field :year, class: "form-control green-border", value: movie_info["Year"] %>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <%= f.label :runtime %>
-              <%= f.text_field :runtime, class: "form-control", value: @movie_info["Runtime"] %>
+              <%= f.text_field :runtime, class: "form-control", value: movie_info["Runtime"] %>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <%= f.label :genre %>
-              <%= f.text_field :genre, class: "form-control", value: @movie_info["Genre"] %>
+              <%= f.text_field :genre, class: "form-control", value: movie_info["Genre"] %>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <%= f.label :director %>
-              <%= f.text_field :director, class: "form-control", value: @movie_info["Director"] %>
+              <%= f.text_field :director, class: "form-control", value: movie_info["Director"] %>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <%= f.label :actors %>
-              <%= f.text_field :actors, class: "form-control", value: @movie_info["Actors"] %>
+              <%= f.text_field :actors, class: "form-control", value: movie_info["Actors"] %>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <%= f.label :country %>
-              <%= f.text_field :country, class: "form-control", value: @movie_info["Country"] %>
+              <%= f.text_field :country, class: "form-control", value: movie_info["Country"] %>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <%= f.label :awards %>
-              <%= f.text_field :awards, class: "form-control", value: @movie_info["Awards"] %>
+              <%= f.text_field :awards, class: "form-control", value: movie_info["Awards"] %>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <%= f.label :poster %>
-              <%= f.text_field :poster, class: "form-control", value: @movie_info["Poster"], placeholder: "url to poster" %>
+              <%= f.text_field :poster, class: "form-control", value: movie_info["Poster"], placeholder: "url to poster" %>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <%= f.label :category %>
-              <%= f.text_field :category, class: "form-control", value: @movie_info["Type"], placeholder: "movie / series" %>
+              <%= f.text_field :category, class: "form-control", value: movie_info["Type"], placeholder: "movie / series" %>
             </div>
           </div>
         </div>
@@ -77,7 +74,7 @@
             <div class="form-group plot">
               <%= f.label :plot, class: "control-label" %>
               <span class="pull-right" id="plot-lenght">Min 50 and max 1200 characters.</span>
-              <%= f.text_area :plot, class: "form-control green-border", rows: "6", value: @movie_info["Plot"], maxlength: "1200"  %>
+              <%= f.text_area :plot, class: "form-control green-border", rows: "6", value: movie_info["Plot"], maxlength: "1200"  %>
             </div>            
           </div>
         </div>
