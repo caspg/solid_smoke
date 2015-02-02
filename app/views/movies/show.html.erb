@@ -11,37 +11,50 @@
     </div>
 
     <div class="col-md-8 movie-details">
-      <h1>
-        <span><%= @movie.title %></span>
-        <span>(<%= @movie.year %>)</span>
-      </h1>
-      <p><%= @movie.plot %></p>
-      <div>
-        <table class="table">
-          <tr>
-            <th>Director:</th>
-            <td><%= @movie.director %></td>
-          </tr>
-          <tr>
-            <th>Runtime:</th>
-            <td><%= @movie.runtime %></td>
-          </tr>
-          <tr>
-            <th>Actors:</th>
-            <td><%= @movie.actors %></td>
-          </tr>
-          <tr>
-            <th>Genre:</th>
-            <td><%= @movie.genre %></td>
-          </tr>
-          <tr>
-            <th>Awards:</th>
-            <td><%= @movie.awards %></td>
-          </tr>
-        </table>
+      <div class="row">
+        <h1>
+          <span><%= @movie.title %></span>
+          <span>(<%= @movie.year %>)</span>
+        </h1>
+        <p><%= @movie.plot %></p>
+        <div>
+          <table class="table">
+            <tr>
+              <th>Director:</th>
+              <td><%= @movie.director %></td>
+            </tr>
+            <tr>
+              <th>Runtime:</th>
+              <td><%= @movie.runtime %></td>
+            </tr>
+            <tr>
+              <th>Actors:</th>
+              <td><%= @movie.actors %></td>
+            </tr>
+            <tr>
+              <th>Genre:</th>
+              <td><%= @movie.genre %></td>
+            </tr>
+            <tr>
+              <th>Awards:</th>
+              <td><%= @movie.awards %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <h1>Reviews<span></span></h1>
+        <div class="border">
+          <%= form_for @review do |f| %>
+            <%= f.label :title, class: "control-label" %>
+            <%= f.text_field :title, class: "form-control" %>
+            <%= f.label :content, class: "control-label" %>
+            <%= f.text_area :content, class: "form-control" %>
+            <%= f.submit "add new review", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+
       </div>
     </div>
-
   </div>
-
 </div>
