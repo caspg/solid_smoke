@@ -49,6 +49,7 @@
               <table>
                 <tr><td class="rev-title"><%= review.title %></td></tr>
                 <tr><td class="rev-content"><%= review.content %></td></tr>
+                <tr><td class="rev-date">posted: <%= time_ago_in_words(review.created_at) %> ago.</td></tr>
               </table>
             </div>
           <% end %>
