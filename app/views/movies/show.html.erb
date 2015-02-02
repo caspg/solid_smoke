@@ -43,21 +43,16 @@
         </div>
       </div>
       <div class="row">
-
-        <table class="table reviews">
-          <tr><h2>Reviews</h2></tr>
+        <div class="reviews">
           <% @reviews.each do |review| %>      
-            <tr class="review">
-              <tr><td><h4><%= review.title %></h4></td></tr>
-              <tr>
-                <td><%= review.content %></td>
-              </tr>
-            </tr>
+            <div class="review">
+              <table>
+                <tr><td class="rev-title"><%= review.title %></td></tr>
+                <tr><td class="rev-content"><%= review.content %></td></tr>
+              </table>
+            </div>
           <% end %>
-        </table>
-      
-     
-       
+        </div>
       
         <% if user_signed_in? && !user_wrote_review? %>     
           <div class="border">

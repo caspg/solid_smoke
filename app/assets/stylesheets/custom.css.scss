@@ -246,9 +246,26 @@ footer {
       margin-top: 25px;
     }
   }
+  .reviews {
+    margin-top: 50px;
+  }
   .review {
     border: $smoke-style;
-    border-radius: 25px;
+    border-radius: 10px;
+    overflow: hidden;
+    table {
+      width: 100%;
+      }
+    .rev-title {
+      font-weight: bold;
+      width: 100%;
+      border-bottom: $smoke-style;
+      padding: 6px 40px;
+      background-color: #E4F1FE;
+    }
+    .rev-content {
+      padding: 12px 40px;
+    }
   }
 }
 
