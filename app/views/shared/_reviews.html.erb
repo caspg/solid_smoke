@@ -5,7 +5,7 @@
         <tr class="rev-title">
           <td colspan="2">
             <h4><%= review.title %></h4>
-            <em>author: <%= review.user.email %> | posted: <%= time_ago_in_words(review.created_at) %> ago.</em>
+            <em>author: <%= review.user.username %> | posted: <%= time_ago_in_words(review.created_at) %> ago.</em>
           </td>     
         </tr>
         <tr>
