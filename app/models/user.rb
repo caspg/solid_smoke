@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
       where(conditions.to_h).first
     end
   end
+
+  def can_vote_for_review?(review)
+    review_votes.build(value: 1, review: review).valid?
+  end
 end

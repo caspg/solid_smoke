@@ -7,4 +7,8 @@ class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :movie
   has_many :review_votes, dependent: :destroy
+
+  def votes
+    review_votes.sum(:value)
+  end
 end
