@@ -273,8 +273,10 @@ footer {
       padding-right: 20px;
     }
     .rev-content {
-      padding: 12px 30px;
-      font-size: 0.95em;
+      td {
+        padding: 12px 30px;
+        font-size: 0.95em;
+      }
     }
   }
 }
@@ -287,6 +289,16 @@ footer {
   }
   .table {
     border-bottom: $smoke-style;
+  }
+}
+
+.downvoted {
+  color: #bdbdbd;
+  h4 {
+    display: none;
+  }
+  .rev-content > .content {
+    display: none;
   }
 }
 

@@ -20,13 +20,16 @@ $(document).ready ( function () {
 // -------------------------------------------
 // Display number of characters of plot's input
 // -------------------------------------------
-    var plot_input = $("#movie_plot").val().length;
-    if (plot_input == 0) {
-        $("#plot-lenght").text("You've reached the limit.");
-    } else  {
-        var max = 1200;
-        var char_left = max - plot_input;
-        $("#plot-lenght").html("characters: " + plot_input + "/" + char_left);
+    // Test if #movie_plot element exists
+    if ($("#movie_plot").length) {
+        var plot_input = $("#movie_plot").val().lenght;
+        if ( plot_input == 0) {
+            $("#plot-lenght").text("You've reached the limit.");
+        } else  {
+            var max = 1200;
+            var char_left = max - plot_input;
+            $("#plot-lenght").html("characters: " + plot_input + "/" + char_left);
+        };
     };
     $(".new-movie-page #movie_plot").keyup(function() {
         var plot_input = $("#movie_plot").val().length;
@@ -71,5 +74,13 @@ $(document).ready ( function () {
             };
         }
     });
+// --------------------------------------------------------
+// Hide downvoted review
+// --------------------------------------------------------
+    $(".downvoted .rev-title td").prepend("<h5><em>This review was downvoted. Click if you want display it.</em></h5>");
+    $(document).on("click", ".downvoted", function() {
+        $(".downvoted .rev-content .content").toggle("slow");
+        $(".downvoted .rev-title h4").toggle("slow");
+        $(".downvoted .rev-title h5").toggle("slow");
+    });
 });
-

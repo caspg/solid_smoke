@@ -1,6 +1,6 @@
 <div class="reviews">
   <% @reviews.each do |review| %>      
-    <div class="review">
+    <div class="review <%= 'downvoted' if review.votes <= -2 %>">
       <table>
         <tr class="rev-title">
           <td colspan="2">
@@ -8,8 +8,8 @@
             <em>author: <%= review.user.username %> | posted: <%= time_ago_in_words(review.created_at) %> ago.</em>
           </td>     
         </tr>
-        <tr>
-          <td class="rev-content"><%= review.content %></td>
+        <tr class="rev-content">
+          <td class="content"><%= review.content %></td>
           <td>
             <span class="pull-right">
               <%= pluralize(review.votes, 'vote') %>
