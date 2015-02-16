@@ -7,6 +7,7 @@ class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :movie
   has_many :review_votes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def self.by_votes
     select('reviews.*, COALESCE(  SUM(value), 0) AS votes').
