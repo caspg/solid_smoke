@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'comments/create'
+
   resources :reviews, only: [:create] do 
     member { post :vote }
   end
