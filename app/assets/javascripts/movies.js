@@ -89,5 +89,13 @@ $(document).ready ( function () {
     $(".review").on("click", ".toggle-new-comment", function() {
         $(this).closest(".review").next(".comments").children(".new-comment").toggle();
     });
-    // $(".toggle-new-comment").closest(".review").css("background", "yellow");
+// --------------------------------------------------------
+// Hide/show comments except - last is always visible
+// --------------------------------------------------------
+    $(".comments").on("click", ".toggle-comments a", function() {
+        $(this).parent().siblings(".comment:not(:last-of-type)").slideToggle();
+        // change link text from 'show comments' to 'hide comments'
+        $(this).children("span").toggle();
+        $(this).find(".caret-reversed").css("display", "inline-block")
+    });
 });

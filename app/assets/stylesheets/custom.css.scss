@@ -69,6 +69,11 @@ html {
   border-color: $green;
 }
 
+.caret.caret-reversed {
+  border-top-width: 0;
+  border-bottom: 4px solid;
+}
+
 
 // ------------------------------------------------------------
 // HEADER 
@@ -312,6 +317,9 @@ footer {
 .comments {
   .toggle-comments {
     text-align: center;
+    span:last-child {
+      display: none;
+    }
   }
   margin-left: 100px;
   em {
@@ -330,6 +338,9 @@ footer {
     tr:first-child {
       border-bottom: $smoke-style;
     }
+  }
+  .comment:not(:last-of-type) {
+    display: none;
   }
 }
 
