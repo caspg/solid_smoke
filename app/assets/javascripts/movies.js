@@ -83,4 +83,11 @@ $(document).ready ( function () {
         $(".downvoted .rev-title h4").toggle("slow");
         $(".downvoted .rev-title h5").toggle("slow");
     });
+// --------------------------------------------------------
+// Toggle new comment's form
+// --------------------------------------------------------
+    $(".review").on("click", ".toggle-new-comment", function() {
+        $(this).closest(".review").next(".comments").children(".new-comment").toggle();
+    });
+    // $(".toggle-new-comment").closest(".review").css("background", "yellow");
 });

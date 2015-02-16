@@ -17,10 +17,24 @@
                 <%= link_to 'up', vote_review_path(review, value: 1), method: "post" %>
                 <%= link_to 'down', vote_review_path(review, value: -1), method: "post" %>
               <% end %>
+              |
+              <%= link_to 'Comment', 'javascript:void(0)', class: "toggle-new-comment" %>
             </span>
           </td>
         </tr>
       </table>
+    </div>
+    <div class="comments">
+      
+      <%= render partial: "comments/comment", collection: @comments.where(review_id: review.id) %>    
+
+      <div class="new-comment">
+        <%= form_for @comment do |f| %>
+          <%= f.hidden_field :review_id, value: review.id %>
+          <%= f.text_field :content, class: "form-control" %>
+          <%= f.submit 'Save', class: "btn btn-primary" %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

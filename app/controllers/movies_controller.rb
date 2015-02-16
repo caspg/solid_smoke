@@ -29,6 +29,8 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @review = Review.new
     @reviews = Review.by_votes
+    @comment = Comment.new
+    @comments = Comment.all
   end
 
   def search_info
