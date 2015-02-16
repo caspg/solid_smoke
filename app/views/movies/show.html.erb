@@ -43,22 +43,8 @@
         </div>
       </div>
       <div class="row">
-
-        <%= render 'shared/reviews' %>      
-      
-        <% if user_signed_in? && !user_wrote_review? %>     
-          <div class="border new-review">
-            <%= form_for @review do |f| %>
-              <%= f.hidden_field :movie_id, value: @movie.id %>
-              <%= f.label :title, class: "control-label" %>
-              <%= f.text_field :title, class: "form-control" %>
-              <%= f.label :content, class: "control-label" %>
-              <%= f.text_area :content, class: "form-control" %>
-              <%= f.submit "add new review", class: "btn btn-primary" %>
-            <% end %>
-          </div>
-        <% end %>
-      
+        <%= render 'reviews/reviews' %>
+        <%= render 'reviews/form' %>      
       </div>
     </div>
   </div>

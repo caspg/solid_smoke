@@ -1,0 +1,10 @@
+ <% if review.comments.count > 1 %> 
+  <div class="toggle-comments">
+    <%= link_to'javascript:void(0)' do  %>
+      <span>Show more comments</span>
+      <span>(<%= review.comments.count %>)</span> 
+      <span class="caret"></span>
+      <span>Hide comments<span class="caret caret-reversed"></span></span>
+    <% end %>
+  </div>  
+<% end %>

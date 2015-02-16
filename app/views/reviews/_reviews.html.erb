@@ -18,7 +18,7 @@
                 <%= link_to 'down', vote_review_path(review, value: -1), method: "post" %>
               <% end %>
               |
-              <%= link_to 'Comment', 'javascript:void(0)', class: "toggle-new-comment" %>
+              <%= link_to 'add comment', 'javascript:void(0)', class: "toggle-new-comment" %>
             </span>
           </td>
         </tr>
@@ -27,25 +27,9 @@
     <div class="comments">
       
       <%= render partial: "comments/comment", collection: @comments.where(review_id: review.id) %>   
-      
-      <div class="toggle-comments">
-        <% if review.comments.count > 1 %>
-          <%= link_to'javascript:void(0)' do  %>
-            <span>Show more comments</span>
-            <span>(<%= review.comments.count %>)</span> 
-            <span class="caret"></span>
-            <span>Hide comments<span class="caret caret-reversed"></span></span>
-          <% end %>
-        <% end %>
-      </div>    
-
-      <div class="new-comment">
-        <%= form_for @comment do |f| %>
-          <%= f.hidden_field :review_id, value: review.id %>
-          <%= f.text_field :content, class: "form-control" %>
-          <%= f.submit 'Save', class: "btn btn-primary" %>
-        <% end %>
-      </div>
+      <%= render partial: "comments/toggle_comments", locals: { review: review } %>  
+      <%= render partial: "comments/form", locals: { review: review } %>
+  
     </div>
   <% end %>
 </div>
