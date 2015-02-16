@@ -24,3 +24,9 @@ group :development, :test do
   gem 'capybara'
   gem 'shoulda-matchers', require: false
 end
+
+ruby '2.1.5'
+
+group :production do
+  gem 'rails_12factor'
+end
