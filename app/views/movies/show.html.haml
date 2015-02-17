@@ -1,0 +1,34 @@
+.movie-informations
+  .row
+    .col-md-4.poster
+      - if @movie.poster
+        = image_tag @movie.poster
+      - else
+        = image_tag "https://placekitten.com/g/300/450"
+    .col-md-8.movie-details
+      .row
+        %h1
+          %span= @movie.title
+          %span
+            (#{@movie.year})
+        %p= @movie.plot
+        %div
+          %table.table
+            %tr
+              %th Director:
+              %td= @movie.director
+            %tr
+              %th Runtime:
+              %td= @movie.runtime
+            %tr
+              %th Actors:
+              %td= @movie.actors
+            %tr
+              %th Genre:
+              %td= @movie.genre
+            %tr
+              %th Awards:
+              %td= @movie.awards
+      .row
+        = render 'reviews/reviews'
+        = render 'reviews/form'

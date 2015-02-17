@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title SolidSmoke
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = render 'layouts/header'
+    - unless user_signed_in? || !current_page?(root_path)
+      = render 'static_pages/big_image'
+    - flash.each do |message_type, message|
+      %div{:class => "alert alert-#{message_type}"}= message
+    .container
+      = yield
+    = render 'layouts/footer'

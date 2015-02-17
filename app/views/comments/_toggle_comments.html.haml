@@ -1,0 +1,10 @@
+- if review.comments.count > 1
+  .toggle-comments
+    = link_to'javascript:void(0)' do
+      %span Show more comments
+      %span
+        (#{review.comments.count})
+      %span.caret
+      %span
+        Hide comments
+        %span.caret.caret-reversed

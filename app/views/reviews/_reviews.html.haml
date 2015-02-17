@@ -1,0 +1,21 @@
+.reviews
+  - @reviews.each do |review|
+    %div{:class => "review #{'downvoted' if review.votes <= -2}"}
+      %table
+        %tr.rev-title
+          %td{:colspan => "2"}
+            %h4= review.title
+            %em
+              author: #{review.user.username} | posted: #{time_ago_in_words(review.created_at)} ago.
+        %tr.rev-content
+          %td.content= review.content
+          %td
+            %span.pull-right
+              = render "shared/votes", review: review
+              - if user_signed_in?
+                |
+                \#{link_to 'add comment', 'javascript:void(0)', class: "toggle-new-comment"}
+    .comments
+      = render partial: "comments/comment", collection: @comments.where(review_id: review.id)
+      = render partial: "comments/toggle_comments", locals: { review: review }
+      = render partial: "comments/form", locals: { review: review }

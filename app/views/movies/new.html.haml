@@ -1,0 +1,53 @@
+.row.new-movie-page
+  .col-md-8.col-md-offset-2
+    = form_for @movie do |f|
+      = render 'shared/error_messages', object: f.object
+      = f.submit "Add this movie", class: "btn btn-primary", id: "add-movie"
+      .border
+        .row
+          .col-md-6
+            .form-group.title
+              = f.label :title, class: "control-label"
+              = f.text_field :title, class: "form-control green-border", value: movie_info["Title"]
+          .col-md-6
+            .form-group.year
+              = f.label :year, class: "control-label"
+              = f.text_field :year, class: "form-control green-border", value: movie_info["Year"]
+          .col-md-6
+            .form-group
+              = f.label :runtime
+              = f.text_field :runtime, class: "form-control", value: movie_info["Runtime"]
+          .col-md-6
+            .form-group
+              = f.label :genre
+              = f.text_field :genre, class: "form-control", value: movie_info["Genre"]
+          .col-md-6
+            .form-group
+              = f.label :director
+              = f.text_field :director, class: "form-control", value: movie_info["Director"]
+          .col-md-6
+            .form-group
+              = f.label :actors
+              = f.text_field :actors, class: "form-control", value: movie_info["Actors"]
+          .col-md-6
+            .form-group
+              = f.label :country
+              = f.text_field :country, class: "form-control", value: movie_info["Country"]
+          .col-md-6
+            .form-group
+              = f.label :awards
+              = f.text_field :awards, class: "form-control", value: movie_info["Awards"]
+          .col-md-6
+            .form-group
+              = f.label :poster
+              = f.text_field :poster, class: "form-control", value: movie_info["Poster"], placeholder: "url to poster"
+          .col-md-6
+            .form-group
+              = f.label :category
+              = f.text_field :category, class: "form-control", value: movie_info["Type"], placeholder: "movie / series"
+        .row
+          .col-md-12
+            .form-group.plot
+              = f.label :plot, class: "control-label"
+              %span#plot-lenght.pull-right Min 50 and max 1200 characters.
+              = f.text_area :plot, class: "form-control green-border", rows: "6", value: movie_info["Plot"], maxlength: "1200"
