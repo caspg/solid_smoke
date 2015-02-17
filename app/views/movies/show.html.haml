@@ -5,8 +5,9 @@
         = image_tag @movie.poster
       - else
         = image_tag "https://placekitten.com/g/300/450"
-      
-      = render 'movie_ratings/form' if user_signed_in?
+    
+      .ratings  
+        = render 'movie_ratings/stars' if user_signed_in?
       
 
     .col-md-8.movie-details
