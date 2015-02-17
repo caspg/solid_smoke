@@ -102,5 +102,13 @@ $(document).ready ( function () {
 // Ratings - jQuery Raty
 // --------------------------------------------------------
     $.fn.raty.defaults.path = '/assets';
-    $('#raty-stars').raty();
+    $('#raty-stars').raty({
+        score: function() {
+            return $(this).attr('data-score');
+        }
+    });
+    $('#raty-stars').on('click', 'img', function() {
+        $('form#new_movie_rating').submit();
+        $('form.edit_movie_rating').submit();
+    });
 });

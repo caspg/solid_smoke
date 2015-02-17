@@ -31,6 +31,8 @@ class MoviesController < ApplicationController
     @reviews = Review.where(movie_id: params[:id]).by_votes
     @comment = Comment.new
     @comments = Comment.all
+    @movie_rating = MovieRating.where({ user_id: current_user.id, movie_id: params[:id] }).
+      first_or_initialize
   end
 
   def search_info

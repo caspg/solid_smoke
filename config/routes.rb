@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :movie_ratings, only: [:create, :update]
+
   resources :comments, only: [:create]
 
   resources :reviews, only: [:create] do 
