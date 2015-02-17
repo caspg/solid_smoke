@@ -98,4 +98,9 @@ $(document).ready ( function () {
         $(this).children("span").toggle();
         $(this).find(".caret-reversed").css("display", "inline-block")
     });
+// --------------------------------------------------------
+// Ratings - jQuery Raty
+// --------------------------------------------------------
+    $.fn.raty.defaults.path = '/assets';
+    $('#raty-stars').raty();
 });
