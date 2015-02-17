@@ -3,7 +3,7 @@ class CreateMovieRatings < ActiveRecord::Migration
     create_table :movie_ratings do |t|
       t.references :user, index: true
       t.references :movie, index: true
-      t.integer :value, default: 0
+      t.integer :score, default: 0
 
       t.timestamps null: false
     end

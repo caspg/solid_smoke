@@ -17,7 +17,7 @@ RSpec.describe MovieRating, type: :model do
 
     it { should validate_presence_of(:user) }
     it { should validate_presence_of(:movie) }
-    it { should validate_inclusion_of(:value).in_range(1..5) }
+    it { should validate_inclusion_of(:score).in_range(1..5) }
     it { should validate_uniqueness_of(:movie_id).scoped_to(:user_id) }
   end
 end

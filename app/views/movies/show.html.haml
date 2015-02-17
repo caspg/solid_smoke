@@ -6,7 +6,7 @@
       - else
         = image_tag "https://placekitten.com/g/300/450"
       
-      = render 'movie_ratings/form'
+      = render 'movie_ratings/form' if user_signed_in?
       
 
     .col-md-8.movie-details

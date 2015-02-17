@@ -103,6 +103,7 @@ $(document).ready ( function () {
 // --------------------------------------------------------
     $.fn.raty.defaults.path = '/assets';
     $('#raty-stars').raty({
+        scoreName: 'movie_rating[score]',
         score: function() {
             return $(this).attr('data-score');
         }

@@ -32,7 +32,7 @@ class MoviesController < ApplicationController
     @comment = Comment.new
     @comments = Comment.all
     @movie_rating = MovieRating.where({ user_id: current_user.id, movie_id: params[:id] }).
-      first_or_initialize
+      first_or_initialize if user_signed_in?
   end
 
   def search_info
