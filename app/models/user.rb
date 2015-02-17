@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   has_many :review_votes
   has_many :comments
+  has_many :movie_ratings, dependent: :destroy
 
   attr_accessor :login
 

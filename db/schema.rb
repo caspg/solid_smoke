@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216112300) do
+ActiveRecord::Schema.define(version: 20150217103921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 20150216112300) do
 
   add_index "comments", ["review_id"], name: "index_comments_on_review_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "movie_ratings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "movie_id"
+    t.integer  "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "movie_ratings", ["movie_id"], name: "index_movie_ratings_on_movie_id", using: :btree
+  add_index "movie_ratings", ["user_id"], name: "index_movie_ratings_on_user_id", using: :btree
 
   create_table "movies", force: :cascade do |t|
     t.string   "title"
@@ -86,6 +97,8 @@ ActiveRecord::Schema.define(version: 20150216112300) do
 
   add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
+  add_foreign_key "movie_ratings", "movies"
+  add_foreign_key "movie_ratings", "users"
   add_foreign_key "reviews", "movies"
   add_foreign_key "reviews", "users"
 end
