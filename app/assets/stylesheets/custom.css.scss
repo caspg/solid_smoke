@@ -18,7 +18,9 @@ $break-small: 768px;  // bootstrap breakpoint
 // ------------------------------------------------------------
 
 .error {
+  float: right;
   color: $red-alert;
+  margin: 0;
 }
 .form-control.error {
   border-color: $red-alert !important; 
@@ -253,11 +255,15 @@ footer {
   }
   .new-review {
     margin-top: 15px;
+    .content {
+      margin-top: 15px;
+    }
   }
   .reviews {
     margin-top: 30px;
   }
   .review {
+
     margin-top: 15px;
     border: $smoke-style;
     border-radius: 10px;
