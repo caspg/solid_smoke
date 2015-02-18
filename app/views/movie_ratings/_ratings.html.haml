@@ -1,6 +1,8 @@
 .total-rating
-  %h1 4.9
-  %h4 /5 from 678 users 
+  %h1= @movie.rating_average
+  %h4 
+    \/5 from 
+    =pluralize(@movie.rating_count, 'user') 
 
 .user-rating
   %h4 Your rating:
