@@ -2,8 +2,10 @@ class ReviewsController < ApplicationController
 
   def create
     @review = current_user.reviews.build(review_params)
-    if @review.save!
-      redirect_to movie_path(review_params[:movie_id])
+    if @review.save
+      redirect_to movie_path(review_params[:movie_id]), flash: { success: 'Review successfully created!' }
+    else
+      redirect_to movie_path(review_params[:movie_id]), flash: { warning: 'Could not create a review!' }
     end
   end
 
