@@ -101,7 +101,7 @@ $(document).ready ( function () {
 // --------------------------------------------------------
 // Ratings - jQuery Raty
 // --------------------------------------------------------
-    $.fn.raty.defaults.path = '/assets';
+    $.fn.raty.defaults.path = '/images/';
     $('#raty-stars').raty({
         scoreName: 'movie_rating[score]',
         score: function() {
