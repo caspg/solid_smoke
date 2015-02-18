@@ -112,4 +112,10 @@ $(document).ready ( function () {
         $('form#new_movie_rating').submit();
         $('form.edit_movie_rating').submit();
     });
+    $('#raty-stars-guest').raty({
+        click: function() {
+            alert('You need to login before vote.')
+            return false
+        }
+    });
 });

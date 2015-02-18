@@ -1,0 +1,15 @@
+.total-rating
+  %h1 4.9
+  %h4 /5 from 678 users 
+
+.user-rating
+  %h4 Your rating:
+  - if user_signed_in?
+    =form_for @movie_rating do |f|
+      =f.hidden_field :movie_id, value: params[:id]      
+      #raty-stars{ 'data-score' => "#{@movie_rating.score}" }
+    %br/
+    %em (You can update it, whenever you want.)
+  - else
+    #raty-stars-guest
+    

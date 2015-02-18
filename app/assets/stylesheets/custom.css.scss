@@ -352,7 +352,7 @@ footer {
 
 .ratings {
   // border: $smoke-style;
-  .rating-details {
+  .user-rating {
     padding-bottom: 10px;
     h4  {
       display: inline-block;
@@ -375,6 +375,12 @@ footer {
       margin-top: 10px;
       display: inline-block;
       border-bottom: 0;
+    }
+  }
+  #raty-stars-guest {
+    display: inline-block;
+    img {
+      margin-top: 0; // it inherites margin-top: 25px; from .poster>img
     }
   }
 }
