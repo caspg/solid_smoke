@@ -1,0 +1,36 @@
+// header 
+// ------------------------------------------------------------
+
+#logo {
+float: left;
+margin-right: 10px;
+font-size: 1.7em;
+color: #777;
+text-transform: uppercase;
+letter-spacing: -1px;
+padding-top: 9px;
+font-weight: bold;
+&:hover {
+  text-decoration: none;
+  }
+}
+
+.navbar-default {
+  background-color: #ffffff;
+  li:hover {
+    background-color: #F2F1EF;
+  }
+}
+
+// footer 
+// ------------------------------------------------------------
+
+footer {
+  height: 50px;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #e2e2e2;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

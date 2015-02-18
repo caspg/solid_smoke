@@ -1,0 +1,37 @@
+.new-comment {
+  display: none;
+  margin-top: 10px;
+  .btn {
+    margin-top: 10px;
+  }
+}
+
+.comments {
+  .toggle-comments {
+    text-align: center;
+    span:last-child {
+      display: none;
+    }
+  }
+  margin-left: 100px;
+  em {
+    font-size: 0.85em;
+  }
+  .comment {
+    border: $smoke-style;
+    border-radius: 10px;
+    margin-top: 10px;
+    table {
+      width: 100%;
+    }
+    td {
+      padding: 5px;
+    }
+    tr:first-child {
+      border-bottom: $smoke-style;
+    }
+  }
+  .comment:not(:last-of-type) {
+    display: none;
+  }
+}
