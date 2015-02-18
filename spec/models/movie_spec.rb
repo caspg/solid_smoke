@@ -37,4 +37,24 @@ RSpec.describe Movie, :type => :model do
   describe "associations" do
     it { should have_many(:reviews).dependent(:destroy) }
   end
+
+  describe '#rating_average and #rating_count' do
+    let(:user)  { create(:user) }
+    let(:user2) { create(:user) }
+    let(:movie) { create(:movie) }
+    let(:movie_rating)  {create(:movie_rating, score: 2, user: user,  movie: movie) }
+    let(:movie_rating2) {create(:movie_rating, score: 4, user: user2, movie: movie) }
+
+    before do
+      movie.movie_ratings << [movie_rating, movie_rating2]
+    end
+
+    it 'calculates averate rating' do
+      expect(movie.rating_average).to eq(3)
+    end
+
+    it 'calculates number of votes' do
+      expect(movie.rating_count).to eq(2)
+    end
+  end
 end
