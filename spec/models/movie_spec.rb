@@ -57,4 +57,12 @@ RSpec.describe Movie, :type => :model do
       expect(movie.rating_count).to eq(2)
     end
   end
+
+  describe 'papeclip' do
+    it { should have_attached_file(:poster) }
+    it { should validate_attachment_content_type(:poster).
+            allowing('image/png', 'image/jpeg').
+            rejecting('text/plain', 'text/xml') }
+    it { should validate_attachment_size(:poster).less_than(1.megabytes) }
+  end
 end
