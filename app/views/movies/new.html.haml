@@ -40,7 +40,7 @@
           / .col-md-6
           /   .form-group
           /     = f.label :poster
-          /     = f.text_field :poster, class: "form-control", value: movie_info["Poster"], placeholder: "url to poster"
+          = f.hidden_field :poster, value: movie_info["Poster"]
           .col-md-6
             .form-group
               = f.label :category

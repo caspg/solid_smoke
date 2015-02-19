@@ -15,8 +15,9 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.new(movie_params)
+    @movie = Movie.new(movie_params.except(:poster))
     @movie.user_id = current_user.id
+    @movie.poster_from_url(movie_params[:poster])
     if @movie.save
       flash[:success] = "Movie successfully added!"
       redirect_to movie_path(@movie)

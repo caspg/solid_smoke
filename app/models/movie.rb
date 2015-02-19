@@ -21,4 +21,10 @@ class Movie < ActiveRecord::Base
   def rating_count
     movie_ratings.count
   end
+
+  # Paperclip attachment
+  def poster_from_url(url_value)
+    self.poster = URI.parse(url_value)
+  end
+
 end
