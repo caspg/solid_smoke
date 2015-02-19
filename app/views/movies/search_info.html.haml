@@ -1,19 +1,20 @@
-.row
-  .col-md-8.col-md-offset-2
-    %div
-      %p
-        divSearch for a movie in OMDb #{link_to "(The Open Movie Database)", "http://www.omdbapi.com/", :target => "_blank"} or add movie informations manually.
-      .form
-        = form_tag({controller: "movies", action: "search_info"}, method: "get", class: "form-inline", name: "search") do
-          .form-group
-            = text_field_tag :title, nil, class: "form-control", placeholder: "movie title"
-            = submit_tag "Search", class: "btn btn-default", :name => nil, id: "search"
-.row
-  .col-md-8.col-md-offset-2
-    .list-group.omdb-search
-      - if @search_result
-        - if @search_result["Error"]
-          .alert.alert-warning= @search_result["Error"]
-        - else
-          - @search_result["Search"].each do |result|
-            = link_to "#{result["Title"]}, #{result["Year"]}", new_movie_path(:imdbID => result["imdbID"]), class: "list-group-item"
+.card  
+  .row
+    .col-md-8.col-md-offset-2
+      %div
+        %p
+          Search for a movie in OMDb #{link_to "(The Open Movie Database)", "http://www.omdbapi.com/", :target => "_blank"} or add movie informations manually.
+        .form
+          = form_tag({controller: "movies", action: "search_info"}, method: "get", class: "form-inline", name: "search") do
+            .form-group
+              = text_field_tag :title, nil, class: "form-control", placeholder: "movie title"
+              = submit_tag "Search", class: "btn btn-default", :name => nil, id: "search"
+  .row
+    .col-md-8.col-md-offset-2
+      .list-group.omdb-search
+        - if @search_result
+          - if @search_result["Error"]
+            .alert.alert-warning= @search_result["Error"]
+          - else
+            - @search_result["Search"].each do |result|
+              = link_to "#{result["Title"]}, #{result["Year"]}", new_movie_path(:imdbID => result["imdbID"]), class: "list-group-item"

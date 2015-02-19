@@ -1,9 +1,9 @@
-.row.new-movie-page
-  .col-md-8.col-md-offset-2
-    = form_for @movie do |f|
-      = render 'shared/error_messages', object: f.object
-      = f.submit "Add this movie", class: "btn btn-primary", id: "add-movie"
-      .border
+.card  
+  .row.new-movie-page
+    .col-md-8.col-md-offset-2
+      = form_for @movie do |f|
+        = render 'shared/error_messages', object: f.object
+        = f.submit "Add this movie", class: "btn btn-primary", id: "add-movie"
         .row
           .col-md-6
             .form-group.title
@@ -11,7 +11,7 @@
               = f.text_field :title, class: "form-control green-border", value: movie_info["Title"]
           .col-md-6
             .form-group.year
-              = f.label :year, class: "control-label"
+              =f.label :year, class: "control-label"
               = f.text_field :year, class: "form-control green-border", value: movie_info["Year"]
           .col-md-6
             .form-group
