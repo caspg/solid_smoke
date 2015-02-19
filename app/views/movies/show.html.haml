@@ -1,10 +1,6 @@
 .movie-informations
   .row
     .col-md-4.poster
-      - if @movie.poster
-        = image_tag @movie.poster
-      - else
-        = image_tag "https://placekitten.com/g/300/450"
     
       .ratings  
         = render 'movie_ratings/ratings'
