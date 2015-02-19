@@ -40,6 +40,15 @@ html {
   @extend .alert-success
 }
 
+.card {
+  @include box-shadow;
+  background-color: $card-bg-color;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 2px;
+}
+
+
 // errors from "jquery-validation-rails"
 // ------------------------------------------------------------
 

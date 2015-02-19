@@ -1,8 +1,8 @@
 %section.comment
   %table
-    %tr.content
-      %td= comment.content
     %tr.details
       %td
         %em
           author: #{comment.user.username} | posted: #{time_ago_in_words(comment.created_at)} ago.
+    %tr.content
+      %td= comment.content

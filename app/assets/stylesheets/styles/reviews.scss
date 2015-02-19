@@ -1,0 +1,32 @@
+.new-review {
+  .card {
+    background-color: #f4f4f4;
+  }
+  .btn {
+    margin-top: 10px;
+  }
+}
+
+.review {
+  margin-bottom: 15px;
+  table {
+    border: $smoke-style;
+    padding: 15px;
+    width: 100%;
+    tr:first-child{
+      border-bottom: $smoke-style;
+    }
+    tr:nth-child(3) {
+      text-align: right;
+    }
+    td {
+      padding: 5px 15px 5px 15px;
+    }
+  }
+  h4 {
+    span:nth-child(2) {
+      font-size: 0.7em;
+      margin-left: 10px;
+    }
+  }
+}

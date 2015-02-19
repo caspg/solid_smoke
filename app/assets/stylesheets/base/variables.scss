@@ -1,7 +1,15 @@
-$lgrey: #ddd; // light grey
+// Colors
+$background-color: #90C695;
+$card-bg-color: white;
+
+$lgrey: #ddd;
 $red-alert: #C0392B;
 $green: green;
 
 $smoke-style: 1px solid $lgrey; // border style
 
 $break-small: 768px;  // bootstrap breakpoint
+
+// Bootstrap variables
+
+$body-bg: $background-color;

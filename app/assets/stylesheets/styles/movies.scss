@@ -110,62 +110,16 @@ $index_poster_width: 50px;
 // show
 // ------------------------------------------------------------
 
-.movie-informations {
-  h1 {
-    border-bottom: $smoke-style;
-  }
-  .poster {
-    img {
-      margin-top: 25px;
-    }
-  }
-  .new-review {
-    margin-top: 15px;
-    .content {
-      margin-top: 15px;
-    }
-  }
-  .reviews {
-    margin-top: 30px;
-  }
-  .review {
-
-    margin-top: 15px;
-    border: $smoke-style;
-    border-radius: 10px;
-    table {
-      width: 100%;
-      }
-    .rev-title {
-      border-bottom: $smoke-style;
-      // background-color: #E4F1FE;
-      td:nth-child(2) {
-        font-size: 0.85em;
-        font-style: italic;
-      }
-    }
-    td {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-    .rev-content {
-      td {
-        padding: 12px 30px;
-        font-size: 0.95em;
-      }
-    }
-  }
-}
-
 .movie-details {
   h1 {
     span:nth-child(2) {
       font-size: 0.5em;
     }
   }
-  .table {
-    border-bottom: $smoke-style;
-  }
+}
+
+.card.poster {
+  text-align: center;
 }
 
 .downvoted {

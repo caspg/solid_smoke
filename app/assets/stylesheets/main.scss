@@ -1,9 +1,11 @@
+@import "base/variables.scss";
 @import "bootstrap/default.scss";
 @import "bootstrap/custom.scss";
-@import "base/variables.scss";
+@import "base/mixins.scss";
 @import "base/globals.scss";
 @import "styles/comments.scss";
 @import "styles/layout.scss";
 @import "styles/movie_ratings.scss";
 @import "styles/movies.scss";
 @import "styles/static_pages.scss";
+@import "styles/reviews.scss";

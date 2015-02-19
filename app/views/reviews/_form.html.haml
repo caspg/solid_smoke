@@ -1,16 +1,16 @@
 - if user_signed_in? && !user_wrote_review?
-  .border.col-md-12
-    .new-review
+  .new-review
+    .card
       = form_for @review do |f|
         = f.hidden_field :movie_id, value: @movie.id
-        .title.col-md-12
+        .title
           %div
             = f.label :title, class: "control-label"
             = f.text_field :title, class: "form-control"
-        .content.col-md-12
+        .content
           %div        
             = f.label :content, class: "control-label"
             %em (Minimum 10 characters.)
             = f.text_area :content, class: "form-control"
-        .content.col-md-12
+        .content
           = f.submit "add new review", class: "btn btn-primary"
