@@ -118,8 +118,18 @@ $index_poster_width: 50px;
   }
 }
 
-.card.poster {
+.poster {
+  // text-align: center;
+  // padding: 15px 0;
   text-align: center;
+  img {
+    width: 100%;
+    @media only screen and (min-width: 300px) and (max-width: $break-small) {
+      width: auto;
+    }
+    margin-top: 15px;
+    @include box-shadow;
+  }
 }
 
 .downvoted {
