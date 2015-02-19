@@ -8,7 +8,7 @@
       / - movie.poster.nil? ? poster_link = "https://placekitten.com/g/40/60" : poster_link = movie.poster
       %tr
         %td
-          / %div= link_to image_tag(poster_link), movie
+          %div= link_to image_tag(movie.poster.url), movie
         %td
           = link_to movie.title, movie
           %span

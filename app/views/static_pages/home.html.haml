@@ -3,8 +3,8 @@
   .col-md-10.col-md-offset-1
     .recent-gallery
       %h1 Recently added
-      / - @movies.each do |movie|
-      /   %div
-      /     = link_to(movie) do
-      /       = image_tag movie.poster
-      /       %h4= movie.title
+      - @movies.each do |movie|
+        %div
+          = link_to(movie) do
+            = image_tag movie.poster
+            %h4= movie.title

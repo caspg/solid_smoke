@@ -1,7 +1,7 @@
 .movie-informations
   .row
     .col-md-4.poster
-    
+      = image_tag @movie.poster.url 
       .ratings  
         = render 'movie_ratings/ratings'
       
