@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217103921) do
+ActiveRecord::Schema.define(version: 20150219103617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 20150217103921) do
   create_table "movie_ratings", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "movie_id"
-    t.integer  "score", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "score",      default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "movie_ratings", ["movie_id"], name: "index_movie_ratings_on_movie_id", using: :btree
@@ -51,8 +51,12 @@ ActiveRecord::Schema.define(version: 20150217103921) do
     t.string   "category"
     t.text     "plot"
     t.string   "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "poster_file_name"
+    t.string   "poster_content_type"
+    t.integer  "poster_file_size"
+    t.datetime "poster_updated_at"
   end
 
   create_table "review_votes", force: :cascade do |t|
