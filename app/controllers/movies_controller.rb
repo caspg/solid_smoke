@@ -10,7 +10,11 @@ class MoviesController < ApplicationController
     @movie = Movie.new
     if params[:imdbID]
       omdb_service = OmdbServices.new
-      @movie_info = omdb_service.get_info(params[:imdbID])
+      begin
+        @movie_info = omdb_service.get_info(params[:imdbID])
+      rescue
+        flash[:warning] = "Couldn't fetch data! Try later or add movie informations manually."
+      end
     end
   end
 
@@ -39,7 +43,11 @@ class MoviesController < ApplicationController
   def search_info
     if params[:title]
       omdb_service = OmdbServices.new
-      @search_result = omdb_service.search(params[:title])
+      begin
+        @search_result = omdb_service.search(params[:title])
+      rescue
+        flash[:warning] = "Couldn't fetch data! Try later or add movie informations manually." 
+      end
     end
   end
 
