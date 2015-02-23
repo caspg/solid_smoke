@@ -15,6 +15,7 @@ gem 'jquery-turbolinks'
 gem 'jquery-validation-rails'
 gem 'haml-rails'
 gem 'paperclip', '~> 4.2'
+gem 'fog'
 
 group :development, :test do
   gem 'byebug'

@@ -76,4 +76,16 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.paperclip_defaults = { 
+    storage: :fog,
+    fog_directory: ENV['google_bucket_name'],
+    path: "movies/:id/:style/:basename.:extension", 
+    url: "/movies/:id/:style/:basename.:extension",
+    fog_credentials: { 
+      provider: 'Google',
+      google_storage_access_key_id: ENV['google_access_key'],
+      google_storage_secret_access_key: ENV['google_secret_access_key'] 
+      } 
+    }
 end
