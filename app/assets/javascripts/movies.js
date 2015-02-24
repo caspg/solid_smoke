@@ -23,13 +23,9 @@ $(document).ready ( function () {
     // Test if #movie_plot element exists
     if ($("#movie_plot").length) {
         var plot_input = $("#movie_plot").val().length;
-        if ( plot_input == 0) {
-            $("#plot-lenght").text("You've reached the limit.");
-        } else  {
-            var max = 1200;
-            var char_left = max - plot_input;
-            $("#plot-lenght").html("characters: " + plot_input + "/" + max);
-        };
+        var max = 1200;
+        var char_left = max - plot_input;
+        $("#plot-lenght").html("characters: " + plot_input + "/" + max);
     };
     $(".new-movie-page #movie_plot").keyup(function() {
         var plot_input = $("#movie_plot").val().length;
