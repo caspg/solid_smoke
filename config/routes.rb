@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:create, :destroy]
 
-  resources :reviews, only: [:create] do 
+  resources :reviews, only: [:create, :destroy] do 
     member { post :vote }
   end
 

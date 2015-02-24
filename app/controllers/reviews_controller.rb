@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :authenticate_author, only: [:destroy]
 
   def create
     @review = current_user.reviews.build(review_params)
@@ -18,7 +20,23 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    review = Review.find(params[:id])
+    if review.destroy
+      redirect_to :back, flash: { success: 'Review successfully deleted!' }
+    else
+      redirect_to :back, flash: { warning: "Couldn't delete review!"}
+    end
+  end
+
   private 
+
+    def authenticate_author
+      if current_user != Review.find(params[:id]).user
+        redirect_to root_path, flash: { danger: 'You are not allowed to delete this review.' }  
+      end
+    end
+
     def vote_params
       params.require(:review).permit(:value, :review_id)
     end

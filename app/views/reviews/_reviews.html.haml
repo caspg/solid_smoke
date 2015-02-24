@@ -10,12 +10,15 @@
                 %span 
                   %em
                     author: #{review.user.username} | posted: #{time_ago_in_words(review.created_at)} ago.
+            %td
+              = link_to 'delete', review_path(review), method: :delete, data: { confirm: 'Are you sure you want delete it?' }, class: 'pull-right' if current_user == review.user
             
           %tr.content
-            %td= review.content
+            %td{ colspan: '2' }
+              = review.content
               
           %tr
-            %td
+            %td{ colspan: '2' }
               %span
                 = render "shared/votes", review: review
               %span
