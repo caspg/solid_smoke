@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :movie_ratings, only: [:create, :update]
 
-  resources :comments, only: [:create]
+  resources :comments, only: [:create, :destroy]
 
   resources :reviews, only: [:create] do 
     member { post :vote }
