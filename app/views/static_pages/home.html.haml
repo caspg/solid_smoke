@@ -1,7 +1,7 @@
 = render 'about' unless user_signed_in?
 .row
   .col-md-10.col-md-offset-1
-    = link_to 'Add a new movie', search_info_movies_path, class: 'btn btn-default'
+    = link_to 'Add a new movie', search_info_movies_path, class: 'btn btn-default' if user_signed_in?
 
     .card
       .recent-gallery
