@@ -1,6 +1,8 @@
 = render 'about' unless user_signed_in?
 .row
   .col-md-10.col-md-offset-1
+    = link_to 'Add a new movie', search_info_movies_path, class: 'btn btn-default'
+
     .card
       .recent-gallery
         %h1 Recently added
