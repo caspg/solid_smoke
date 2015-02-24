@@ -56,4 +56,54 @@ RSpec.describe CommentsController, :type => :controller do
       end
     end
   end
+
+  describe 'DELETE destroy' do
+    let(:user1)    { create(:user) }
+    let(:user2)    { create(:user) }
+    let!(:comment) { create(:comment, user: user1) }
+
+    context 'user is not signed in' do
+      it 'redirects user to login page' do
+        delete :destroy, id: comment.id
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end  
+
+    context 'comment author is signed in' do
+      before do
+        sign_in user1
+        request.env['HTTP_REFERER'] = 'back'
+      end
+
+      it 'destroys comment' do
+        expect {
+            delete :destroy, id: comment.id
+          }.to change(Comment, :count).by(-1)
+      end
+
+      it 'redirects back with success' do
+        delete :destroy, id: comment.id
+        expect(response).to redirect_to('back') 
+        expect(flash[:success]).to_not be_empty
+      end
+    end
+
+    context 'another user is signed in' do
+      before do
+        sign_in user2
+      end
+
+      it 'does not destroy comment' do
+        expect {
+            delete :destroy, id: comment.id
+          }.to_not change(Comment, :count)
+      end
+
+      it 'redirects to root with danger' do
+        delete :destroy, id: comment.id
+        expect(response).to redirect_to(root_path) 
+        expect(flash[:danger]).to_not be_empty
+      end
+    end
+  end
 end
